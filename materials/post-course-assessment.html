@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Post-Course Assessment | Instructional Skills</title>
+
+<style>
+:root {
+  --primary:#2e7d32;
+  --accent:#4caf50;
+  --bg:#f4f8f5;
+  --card:#ffffff;
+  --text:#263238;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: "Segoe UI", system-ui, sans-serif;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+}
+
+header {
+  background: linear-gradient(135deg, #2e7d32, #66bb6a);
+  color: #fff;
+  padding: 2.5rem 1rem;
+  text-align: center;
+}
+
+header h1 {
+  margin-bottom: .5rem;
+}
+
+header p {
+  max-width: 700px;
+  margin: auto;
+  opacity: .95;
+}
+
+main {
+  max-width: 900px;
+  margin: auto;
+  padding: 1.5rem;
+}
+
+.card {
+  background: var(--card);
+  border-radius: 14px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 10px 30px rgba(0,0,0,.08);
+}
+
+h2 {
+  margin-top: 0;
+}
+
+.scale {
+  display: grid;
+  grid-template-columns: repeat(5,1fr);
+  gap: .5rem;
+  margin-top: .75rem;
+}
+
+.scale button {
+  border: 2px solid var(--accent);
+  background: white;
+  color: var(--accent);
+  padding: .75rem;
+  border-radius: 10px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.scale button.active {
+  background: var(--accent);
+  color: white;
+}
+
+textarea {
+  width: 100%;
+  min-height: 90px;
+  padding: .75rem;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  resize: vertical;
+}
+
+.nps {
+  display: grid;
+  grid-template-columns: repeat(11,1fr);
+  gap: .3rem;
+  margin-top: .75rem;
+}
+
+.nps button {
+  border: 1px solid #ccc;
+  background: #f9f9f9;
+  padding: .6rem;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.nps button.active {
+  background: var(--primary);
+  color: white;
+  border-color: var(--primary);
+}
+
+.submit-btn {
+  background: var(--primary);
+  color: white;
+  border: none;
+  padding: 1rem 1.8rem;
+  font-size: 1rem;
+  border-radius: 12px;
+  cursor: pointer;
+  margin-top: 1rem;
+}
+
+.submit-btn:hover {
+  background: var(--accent);
+}
+
+.result {
+  display: none;
+  text-align: center;
+}
+
+.score {
+  font-size: 2.2rem;
+  font-weight: bold;
+  color: var(--primary);
+}
+
+footer {
+  text-align: center;
+  padding: 1.5rem;
+  font-size: .9rem;
+  opacity: .7;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>Post-Course Assessment</h1>
+  <p>
+    Help us understand your learning experience, impact, and how we can improve.
+  </p>
+</header>
+
+<main>
+
+<form id="postForm">
+
+  <!-- Learning Effectiveness -->
+  <div class="card">
+    <h2>🎓 Learning Effectiveness</h2>
+    <p>How well did this course improve your instructional skills?</p>
+    <div class="scale" data-name="learning">
+      <button type="button">1</button>
+      <button type="button">2</button>
+      <button type="button">3</button>
+      <button type="button">4</button>
+      <button type="button">5</button>
+    </div>
+  </div>
+
+  <!-- Learning Impact -->
+  <div class="card">
+    <h2>📈 Learning Impact</h2>
+    <p>How confident are you applying what you learned?</p>
+    <div class="scale" data-name="impact">
+      <button type="button">1</button>
+      <button type="button">2</button>
+      <button type="button">3</button>
+      <button type="button">4</button>
+      <button type="button">5</button>
+    </div>
+  </div>
+
+  <!-- Return Likelihood -->
+  <div class="card">
+    <h2>🔁 Likelihood to Continue Learning</h2>
+    <p>How likely are you to enroll in another course with us?</p>
+    <div class="scale" data-name="return">
+      <button type="button">1</button>
+      <button type="button">2</button>
+      <button type="button">3</button>
+      <button type="button">4</button>
+      <button type="button">5</button>
+    </div>
+  </div>
+
+  <!-- NPS -->
+  <div class="card">
+    <h2>⭐ Recommendation Score</h2>
+    <p>How likely are you to recommend this course to others?</p>
+    <div class="nps" data-name="nps">
+      <button type="button">0</button>
+      <button type="button">1</button>
+      <button type="button">2</button>
+      <button type="button">3</button>
+      <button type="button">4</button>
+      <button type="button">5</button>
+      <button type="button">6</button>
+      <button type="button">7</button>
+      <button type="button">8</button>
+      <button type="button">9</button>
+      <button type="button">10</button>
+    </div>
+  </div>
+
+  <!-- Open Feedback -->
+  <div class="card">
+    <h2>💬 Your Feedback</h2>
+    <p>What worked well and what can we improve?</p>
+    <textarea placeholder="Share your experience..."></textarea>
+  </div>
+
+  <button class="submit-btn" type="submit">Submit Feedback</button>
+
+</form>
+
+<div class="card result" id="result">
+  <h2>🎉 Thank You!</h2>
+  <p>Your learning impact score:</p>
+  <div class="score" id="finalScore"></div>
+  <p>
+    Your feedback helps us create better learning experiences.
+  </p>
+</div>
+
+</main>
+
+<footer>
+  © My Learning Hub · In collaboration with <strong>CourseMonster</strong>
+</footer>
+
+<script>
+const buttons = document.querySelectorAll(".scale button, .nps button");
+const scores = {};
+
+buttons.forEach(btn => {
+  btn.addEventListener("click", () => {
+    const group = btn.parentElement.dataset.name;
+    btn.parentElement.querySelectorAll("button")
+      .forEach(b => b.classList.remove("active"));
+    btn.classList.add("active");
+    scores[group] = parseInt(btn.textContent);
+  });
+});
+
+document.getElementById("postForm").addEventListener("submit", e => {
+  e.preventDefault();
+
+  const avgScore =
+    ((scores.learning || 0) +
+     (scores.impact || 0) +
+     (scores.return || 0)) / 3;
+
+  document.getElementById("finalScore").textContent =
+    avgScore.toFixed(1) + " / 5";
+
+  document.getElementById("postForm").style.display = "none";
+  document.getElementById("result").style.display = "block";
+
+  window.scrollTo({ top: 0, behavior: "smooth" });
+});
+</script>
+
+</body>
+</html>
