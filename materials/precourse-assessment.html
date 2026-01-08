@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Instructional Skills – Pre-Course Assessment</title>
+
+  <style>
+    :root {
+      --primary: #2e7d32;
+      --secondary: #f1f8e9;
+      --accent: #4caf50;
+      --dark: #263238;
+      --light: #ffffff;
+    }
+
+    * {
+      box-sizing: border-box;
+      font-family: "Segoe UI", system-ui, sans-serif;
+    }
+
+    body {
+      margin: 0;
+      background: var(--secondary);
+      color: var(--dark);
+      line-height: 1.6;
+    }
+
+    header {
+      background: linear-gradient(135deg, #2e7d32, #66bb6a);
+      color: white;
+      padding: 2rem 1rem;
+      text-align: center;
+    }
+
+    header h1 {
+      margin-bottom: 0.5rem;
+      font-size: 2rem;
+    }
+
+    header p {
+      max-width: 700px;
+      margin: auto;
+      font-size: 1rem;
+      opacity: 0.95;
+    }
+
+    main {
+      max-width: 900px;
+      margin: auto;
+      padding: 1.5rem;
+    }
+
+    .card {
+      background: var(--light);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+    }
+
+    .question {
+      margin-bottom: 1.5rem;
+    }
+
+    .question h3 {
+      margin-bottom: 0.75rem;
+      font-size: 1.05rem;
+    }
+
+    label {
+      display: block;
+      padding: 0.5rem;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    label:hover {
+      background: #f0f0f0;
+    }
+
+    input[type="radio"] {
+      margin-right: 0.5rem;
+    }
+
+    textarea {
+      width: 100%;
+      min-height: 80px;
+      padding: 0.75rem;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      resize: vertical;
+    }
+
+    button {
+      background: var(--primary);
+      color: white;
+      border: none;
+      padding: 0.9rem 1.5rem;
+      border-radius: 10px;
+      font-size: 1rem;
+      cursor: pointer;
+      width: 100%;
+      margin-top: 1rem;
+    }
+
+    button:hover {
+      background: var(--accent);
+    }
+
+    .result {
+      display: none;
+      text-align: center;
+    }
+
+    .score {
+      font-size: 2.2rem;
+      color: var(--primary);
+      font-weight: bold;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1.5rem;
+      font-size: 0.9rem;
+      opacity: 0.7;
+    }
+
+    @media (min-width: 600px) {
+      button {
+        width: auto;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Instructional Skills</h1>
+  <p>
+    Pre-Course Assessment  
+    <br/>
+    <small>This diagnostic assessment helps personalize your learning journey.</small>
+  </p>
+</header>
+
+<main>
+
+  <div class="card">
+    <h2>📋 Instructions</h2>
+    <ul>
+      <li>This assessment is <strong>not graded</strong>.</li>
+      <li>Answer honestly based on your current knowledge.</li>
+      <li>Estimated time: <strong>15–20 minutes</strong>.</li>
+    </ul>
+  </div>
+
+  <form id="assessmentForm">
+
+    <div class="card question">
+      <h3>1. What is the primary goal of instructional design?</h3>
+      <label><input type="radio" name="q1" value="0"> To deliver as much content as possible</label>
+      <label><input type="radio" name="q1" value="1"> To facilitate effective learning and skill transfer</label>
+      <label><input type="radio" name="q1" value="0"> To assess learners frequently</label>
+      <label><input type="radio" name="q1" value="0"> To follow a fixed teaching template</label>
+    </div>
+
+    <div class="card question">
+      <h3>2. Which principle best supports adult learning?</h3>
+      <label><input type="radio" name="q2" value="1"> Learning should be relevant and problem-centered</label>
+      <label><input type="radio" name="q2" value="0"> Memorization should be prioritized</label>
+      <label><input type="radio" name="q2" value="0"> Instruction should be instructor-focused</label>
+      <label><input type="radio" name="q2" value="0"> All learners should be taught the same way</label>
+    </div>
+
+    <div class="card question">
+      <h3>3. Bloom’s Taxonomy is primarily used to:</h3>
+      <label><input type="radio" name="q3" value="0"> Rank students</label>
+      <label><input type="radio" name="q3" value="1"> Classify levels of learning objectives</label>
+      <label><input type="radio" name="q3" value="0"> Design exams only</label>
+      <label><input type="radio" name="q3" value="0"> Measure course popularity</label>
+    </div>
+
+    <div class="card question">
+      <h3>4. Scenario</h3>
+      <p>
+        Learners seem disengaged during long lectures.  
+        Which strategy would be most effective?
+      </p>
+      <label><input type="radio" name="q4" value="1"> Introduce activities and discussions</label>
+      <label><input type="radio" name="q4" value="0"> Add more slides</label>
+      <label><input type="radio" name="q4" value="0"> Increase lecture duration</label>
+      <label><input type="radio" name="q4" value="0"> Reduce learner interaction</label>
+    </div>
+
+    <div class="card question">
+      <h3>5. Short Answer</h3>
+      <p>
+        In your own words, describe one characteristic of an effective instructor.
+      </p>
+      <textarea placeholder="Type your response here..."></textarea>
+    </div>
+
+    <button type="submit">Submit Assessment</button>
+
+  </form>
+
+  <div class="card result" id="result">
+    <h2>🎉 Assessment Complete</h2>
+    <p>Your diagnostic score:</p>
+    <div class="score" id="score"></div>
+    <p>
+      This result will help tailor your learning experience in the
+      <strong>Instructional Skills</strong> course.
+    </p>
+  </div>
+
+</main>
+
+<footer>
+  © My Learning Hub · In collaboration with <strong>CourseMonster</strong>
+</footer>
+
+<script>
+  const form = document.getElementById("assessmentForm");
+  const result = document.getElementById("result");
+  const scoreEl = document.getElementById("score");
+
+  form.addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    let score = 0;
+    const radios = form.querySelectorAll("input[type=radio]:checked");
+
+    radios.forEach(radio => {
+      score += parseInt(radio.value);
+    });
+
+    scoreEl.textContent = score + " / 4";
+    form.style.display = "none";
+    result.style.display = "block";
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+</script>
+
+</body>
+</html>
